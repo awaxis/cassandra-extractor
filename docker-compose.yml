@@ -1,0 +1,28 @@
+---
+version: '3'
+services:
+  cassandra-data-migration:
+    image: cassandra-to-cloud:latest
+    hostname: data-migration
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./conf:/etc/wad-labs
+      - ./logs:/var/log/wad-labs
+    stdin_open: true
+    secrets:
+      - CASSANDRA_USER
+      - CASSANDRA_PASSWORD
+      - RDS_USER
+      - RDS_PASSWORD
+    labels:
+      io.rancher.container.pull_image: always
+secrets:
+  CASSANDRA_USER:
+    external: true
+  CASSANDRA_PASSWORD:
+    external: true
+  RDS_USER:
+    external: true
+  RDS_PASSWORD:
+    external: true

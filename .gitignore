@@ -1,0 +1,12 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+logs/*
+*.log
+*.log.*
+*.pyc
+conf/*
+.DS_Store
+deploy/*
